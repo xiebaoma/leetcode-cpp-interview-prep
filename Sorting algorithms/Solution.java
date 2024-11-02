@@ -17,11 +17,10 @@
 /*
 快排
 */
-
 class Solution {
     public int helpfind(int[]nums,int left,int right,int k){
         if(left == right){
-            return nums[left];
+            return nums[k];
         }
         int n=nums[left];
         int i=left-1;
@@ -41,7 +40,7 @@ class Solution {
                 }
             }
         }
-        if(k<left){
+        if(k<=j){
             return helpfind(nums,left, j,k);
         }else{
             return helpfind(nums, j+1,right,k);
