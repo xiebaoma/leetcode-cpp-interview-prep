@@ -2,7 +2,7 @@
 
 This repository contains my C++ solutions to selected LeetCode problems, curated and organized to prepare for technical coding interviews.
 
-So far, **176** questions have been answered
+So far, **178** questions have been answered
 
 ## 📌 Features
 
