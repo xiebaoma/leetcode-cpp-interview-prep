@@ -1,0 +1,39 @@
+/**
+ * xiebaoma
+ * 2025-11-03
+ */
+
+
+#include <vector>
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Solution {
+public:
+    pair<TreeNode*,TreeNode*>dfs(TreeNode* root){
+        if (!root)
+            return {nullptr, nullptr};
+        if (!root->left&&!root->right)
+            return {root,root};
+        auto [l0,l1]=dfs(root->left);
+        auto [r0,r1]=dfs(root->right);
+        if (l1){
+            l1->right=root;
+            l1->left=nullptr;
+        }
+        root->right=r0;
+        root->left= nullptr;
+        return {l0?l0:root,r1?r1:root};
+    }
+    TreeNode* convertBiNode(TreeNode* root) {
+        return dfs(root).first;
+    }
+};
