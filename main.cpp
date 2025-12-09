@@ -9,4 +9,5 @@ using namespace std;
 int main()
 {
     cout<<"Hello World!"<<endl;
+    cout<<"2025-12-09"<<endl;
 }
